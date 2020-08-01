@@ -40,5 +40,5 @@ app.use(middlewares.errorHandler);
 
 const port = 1337;
 app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`);
+  console.log('Listening at https://travelwithbotuz.herokuapp.com');
 });
