@@ -8,13 +8,28 @@ body {
   overflow: hidden;
 }
 
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url(./fonts/poppins_light.ttf) format("truetype");
+}
+
+textarea,
+input,
+label,
+h3,
+p,
+span,
+small {
+  font-family: "Poppins";
+}
+
 .mapboxgl-popup {
   z-index: 9;
 }
 
 .marker {
   transform: translate(-50%, -100%);
-  stroke: #F3B73E;
+  stroke: #f3b73e;
 }
 
 .marker.red path {
@@ -22,10 +37,10 @@ body {
 }
 
 .marker.yellow path {
-  fill: #F3B73E;
+  fill: #f3b73e;
 }
 
-.popup{
+.popup {
   max-width: 40vw;
   padding: 1rem;
 }
@@ -38,8 +53,53 @@ body {
   display: block;
 }
 
-.entry-form label, .entry-form input, 
-.entry-form textarea, .entry-form button {
+.entry-form {
+  min-width: 300px;
+  width: 400px;
+  padding: 10px;
+}
+
+.entry-form input,
+.entry-form textarea {
+  resize: none;
+  border: none;
+  border-bottom: 1px solid #90A4AE;
+  outline: none;
+}
+
+.entry-form input:focus,
+.entry-form textarea:focus {
+  resize: none;
+  border: none;
+  border-bottom: 1px solid #263238;
+  outline: none;
+  background-color: #dedede;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.entry-form button {
+  border: none;
+  background-color: #263238;
+  color: #90A4AE;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.entry-form button:hover {
+  border: none;
+  background-color: #37474F;
+  cursor: pointer;
+}
+
+.entry-form label {
+  font-weight: 600;
+}
+
+.entry-form label,
+.entry-form input,
+.entry-form textarea,
+.entry-form button {
   font-size: 1rem;
   margin: 0.5rem 0;
   display: block;
@@ -47,5 +107,35 @@ body {
 }
 
 .error {
-  color: #f05305
+  color: #f05305;
+}
+
+.fab{
+  display: fixed;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.fab.button{
+  padding: 0 15px;
+  border-radius: 60px;
+  outline: none;
+  font-size: 50px;
+  background-color: #263238;
+  border: none;
+}
+
+.fab.button:hover{
+  background-color: #37474F;
+  cursor: pointer;
+}
+
+.fab .tooltip{
+  visibility: hidden;
+}
+
+.fab:hover .tooltip{
+  visibility: visible;
+  color: white;
 }

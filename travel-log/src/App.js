@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import { listLogEntries } from './API';
 import LogEntryForm from './LogEntryForm';
+import { Fab } from './Fab';
 
 const App = () => {
   const [logEntries, setLogEntries] = useState([]);
@@ -15,6 +16,7 @@ const App = () => {
     longitude: -95.665,
     zoom: 3
   });
+  const [theme, setTheme] = useState(true);
 
   const getEntries = async () => {
     const logEntries = await listLogEntries();
@@ -37,12 +39,16 @@ const App = () => {
     })
   }
 
+  const handleTheme = () => {
+    setTheme(!theme)
+  }
+
   // mapbox://styles/botuz/ckdblusck2aji1ipgtmx79eeg
   return (
     <ReactMapGL
       {...viewport}
       onDblClick={showAddMarkerPopup}
-      mapStyle="mapbox://styles/botuz/ckdblse4m2apl1ipdpl5as50o"
+      mapStyle={theme ? "mapbox://styles/botuz/ckdblse4m2apl1ipdpl5as50o" : "mapbox://styles/botuz/ckdblusck2aji1ipgtmx79eeg"}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
       onViewportChange={setViewport}
     >
@@ -66,10 +72,10 @@ const App = () => {
                     height: `${5 * viewport.zoom}px`,
                   }}
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round">
+                  strokeLinecap="round"
+                  strokeLinejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               </div>
             </Marker>
@@ -138,6 +144,7 @@ const App = () => {
           </>
         ) : null
       }
+      <Fab themeColor={handleTheme} />
     </ReactMapGL >
   );
 }
