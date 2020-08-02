@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const middlewares = require('./middlewares');
-const logs = require('./api/logs')
+const logs = require('./api/logs');
 
 const app = express();
 
@@ -24,7 +24,7 @@ app.use(cors({
   origin: process.env.CORS_ORIGIN,
 }));
 
-app.use(express.json())
+app.use(express.json());
 
 app.get('/', (req, res, next) => {
   res.json({
@@ -38,7 +38,7 @@ app.use(middlewares.notFound);
 
 app.use(middlewares.errorHandler);
 
-const port = 1337;
+const port = process.env.PORT || 1337;
 app.listen(port, () => {
   console.log('Listening at https://travelwithbotuz.herokuapp.com');
 });
