@@ -1,4 +1,5 @@
 ## This is a React and Node.js project.
-- [ ] to be deployed on Heroku. 
+- [x] Backend to be deployed on Heroku. 
+- [x] Frontend to be deployed on Vercel. 
 
 _Inspired by Coding Garden._
